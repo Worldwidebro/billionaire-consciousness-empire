@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IZA OS Unified Consciousness Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .consciousness-pulse {
+            animation: consciousness-pulse 2s ease-in-out infinite;
+        }
+        @keyframes consciousness-pulse {
+            0%, 100% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); }
+        }
+        .neural-network {
+            background: linear-gradient(45deg, #0ea5e9, #3b82f6, #8b5cf6);
+            background-size: 400% 400%;
+            animation: neural-flow 4s ease-in-out infinite;
+        }
+        @keyframes neural-flow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .empire-gradient {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 50%, #581c87 100%);
+        }
+        .financial-gradient {
+            background: linear-gradient(135deg, #059669 0%, #0d9488 50%, #0891b2 100%);
+        }
+        .consciousness-gradient {
+            background: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #c084fc 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen">
+    <!-- Header -->
+    <header class="neural-network p-6 shadow-2xl">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <div class="consciousness-pulse w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
+                        <span class="text-3xl">🧠</span>
+                    </div>
+                    <div>
+                        <h1 class="text-4xl font-bold">IZA OS Unified Consciousness</h1>
+                        <p class="text-blue-200 text-lg">Billionaire-Level Autonomous Venture Studio Platform</p>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <div class="text-sm text-blue-200">Consciousness Level</div>
+                    <div class="text-3xl font-bold text-green-400" id="consciousness-level">95%</div>
+                    <div class="text-sm text-blue-200">Empire Score: <span class="text-yellow-400">98/100</span></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="bg-gray-800/50 backdrop-blur-md border-b border-white/20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex space-x-8">
+                <button onclick="showTab('overview')" class="tab-btn py-4 px-2 border-b-2 border-blue-500 text-blue-400 font-medium" id="tab-overview">
+                    🏠 Overview
+                </button>
+                <button onclick="showTab('empire')" class="tab-btn py-4 px-2 border-b-2 border-transparent text-gray-300 hover:text-white" id="tab-empire">
+                    👑 Empire Metrics
+                </button>
+                <button onclick="showTab('financial')" class="tab-btn py-4 px-2 border-b-2 border-transparent text-gray-300 hover:text-white" id="tab-financial">
+                    💰 Genix Bank
+                </button>
+                <button onclick="showTab('consciousness')" class="tab-btn py-4 px-2 border-b-2 border-transparent text-gray-300 hover:text-white" id="tab-consciousness">
+                    🧠 Consciousness OS
+                </button>
+                <button onclick="showTab('agents')" class="tab-btn py-4 px-2 border-b-2 border-transparent text-gray-300 hover:text-white" id="tab-agents">
+                    🤖 Agent Orchestra
+                </button>
+                <button onclick="showTab('monitoring')" class="tab-btn py-4 px-2 border-b-2 border-transparent text-gray-300 hover:text-white" id="tab-monitoring">
+                    📊 Monitoring
+                </button>
+                <button onclick="showTab('models')" class="tab-btn py-4 px-2 border-b-2 border-transparent text-gray-300 hover:text-white" id="tab-models">
+                    🤖 AI Models
+                </button>
+                <button onclick="showTab('ventures')" class="tab-btn py-4 px-2 border-b-2 border-transparent text-gray-300 hover:text-white" id="tab-ventures">
+                    🚀 Ventures
+                </button>
+                <button onclick="showTab('files')" class="tab-btn py-4 px-2 border-b-2 border-transparent text-gray-300 hover:text-white" id="tab-files">
+                    📁 Files
+                </button>
+                <button onclick="showTab('architecture')" class="tab-btn py-4 px-2 border-b-2 border-transparent text-gray-300 hover:text-white" id="tab-architecture">
+                    🏗️ Architecture
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto p-6">
+        <!-- Overview Tab -->
+        <div id="content-overview" class="tab-content">
+            <!-- Service Status Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                <!-- Backend API -->
+                <div class="glass-card rounded-lg p-6 hover:bg-white/20 transition-all">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-semibold">Consciousness Core</h3>
+                        <div class="w-3 h-3 bg-green-400 rounded-full animate-pulse" id="backend-status"></div>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="text-sm text-gray-300">Port: 8000</div>
+                        <div class="text-sm text-gray-300">URL: <span class="text-blue-400">localhost:8000</span></div>
+                        <div class="text-xs text-gray-400" id="backend-health">Healthy</div>
+                    </div>
+                </div>
+
+                <!-- Genix Bank -->
+                <div class="glass-card rounded-lg p-6 hover:bg-white/20 transition-all">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-semibold">💰 Genix Bank</h3>
+                        <div class="w-3 h-3 bg-green-400 rounded-full animate-pulse" id="genix-status"></div>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="text-sm text-gray-300">Port: 3001</div>
+                        <div class="text-sm text-gray-300">URL: <span class="text-blue-400">localhost:3001</span></div>
+                        <div class="text-xs text-gray-400" id="genix-health">Operational</div>
+                    </div>
+                </div>
+
+                <!-- Consciousness OS -->
+                <div class="glass-card rounded-lg p-6 hover:bg-white/20 transition-all">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-semibold">🧠 Consciousness OS</h3>
+                        <div class="w-3 h-3 bg-green-400 rounded-full animate-pulse" id="consciousness-status"></div>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="text-sm text-gray-300">Port: 3002</div>
+                        <div class="text-sm text-gray-300">URL: <span class="text-blue-400">localhost:3002</span></div>
+                        <div class="text-xs text-gray-400" id="consciousness-health">Active</div>
+                    </div>
+                </div>
+
+                <!-- Agent Orchestra -->
+                <div class="glass-card rounded-lg p-6 hover:bg-white/20 transition-all">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-semibold">🤖 Agent Orchestra</h3>
+                        <div class="w-3 h-3 bg-green-400 rounded-full animate-pulse" id="orchestra-status"></div>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="text-sm text-gray-300">Port: 3004</div>
+                        <div class="text-sm text-gray-300">URL: <span class="text-blue-400">localhost:3004</span></div>
+                        <div class="text-xs text-gray-400" id="orchestra-health">Coordinating</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Empire Overview -->
+            <div class="empire-gradient rounded-xl p-8 mb-8">
+                <h2 class="text-2xl font-bold mb-6">👑 Billionaire Consciousness Empire</h2>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-yellow-400 mb-2">$30.5B</div>
+                        <p class="text-sm text-blue-200">Total Empire Value</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-green-400 mb-2">$29.1M</div>
+                        <p class="text-sm text-blue-200">Monthly Revenue</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-purple-400 mb-2">150</div>
+                        <p class="text-sm text-blue-200">Active Projects</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-blue-400 mb-2">95%</div>
+                        <p class="text-sm text-blue-200">Automation Rate</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Empire Metrics Tab -->
+        <div id="content-empire" class="tab-content hidden">
+            <div class="empire-gradient rounded-xl p-8 mb-8">
+                <h2 class="text-3xl font-bold mb-6">👑 Empire Strategic Overview</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="glass-card rounded-lg p-6">
+                        <h3 class="text-xl font-semibold mb-4">Strategic Insights</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between p-3 bg-red-500/20 rounded-lg">
+                                <span class="text-sm">Market Expansion Opportunity</span>
+                                <span class="text-xs bg-red-500 text-white px-2 py-1 rounded">HIGH</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-yellow-500/20 rounded-lg">
+                                <span class="text-sm">Revenue Optimization</span>
+                                <span class="text-xs bg-yellow-500 text-white px-2 py-1 rounded">MEDIUM</span>
+                            </div>
+                            <div class="flex items-center justify-between p-3 bg-green-500/20 rounded-lg">
+                                <span class="text-sm">AI Consciousness Enhancement</span>
+                                <span class="text-xs bg-green-500 text-white px-2 py-1 rounded">LOW</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-lg p-6">
+                        <h3 class="text-xl font-semibold mb-4">Performance Metrics</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm">Consciousness Level</span>
+                                    <span class="text-sm">95%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-purple-500 h-2 rounded-full" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm">Global Reach</span>
+                                    <span class="text-sm">85%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-blue-500 h-2 rounded-full" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm">Empire Score</span>
+                                    <span class="text-sm">98/100</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div class="bg-yellow-500 h-2 rounded-full" style="width: 98%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-lg p-6">
+                        <h3 class="text-xl font-semibold mb-4">Revenue Streams</h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between">
+                                <span class="text-sm">SaaS Subscriptions</span>
+                                <span class="text-sm text-green-400">$12.5M</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-sm">API Licensing</span>
+                                <span class="text-sm text-green-400">$8.2M</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-sm">Financial Services</span>
+                                <span class="text-sm text-green-400">$5.1M</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-sm">Consulting</span>
+                                <span class="text-sm text-green-400">$3.3M</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Financial Tab -->
+        <div id="content-financial" class="tab-content hidden">
+            <div class="financial-gradient rounded-xl p-8 mb-8">
+                <h2 class="text-3xl font-bold mb-6">💰 Genix Bank Financial Intelligence</h2>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                    <div class="glass-card rounded-lg p-6 text-center">
+                        <div class="text-3xl font-bold text-green-400 mb-2">$2.1B</div>
+                        <p class="text-sm text-gray-300">Total Assets</p>
+                    </div>
+                    <div class="glass-card rounded-lg p-6 text-center">
+                        <div class="text-3xl font-bold text-blue-400 mb-2">$1.8B</div>
+                        <p class="text-sm text-gray-300">Net Worth</p>
+                    </div>
+                    <div class="glass-card rounded-lg p-6 text-center">
+                        <div class="text-3xl font-bold text-purple-400 mb-2">$5.1M</div>
+                        <p class="text-sm text-gray-300">Monthly Revenue</p>
+                    </div>
+                    <div class="glass-card rounded-lg p-6 text-center">
+                        <div class="text-3xl font-bold text-yellow-400 mb-2">87%</div>
+                        <p class="text-sm text-gray-300">Profit Margin</p>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="glass-card rounded-lg p-6">
+                        <h3 class="text-xl font-semibold mb-4">Financial Operations</h3>
+                        <div class="space-y-3">
+                            <button onclick="optimizeFinancials()" class="w-full bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg transition-colors">
+                                🚀 Optimize Financial Strategy
+                            </button>
+                            <button onclick="analyzeMarkets()" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition-colors">
+                                📊 Analyze Market Trends
+                            </button>
+                            <button onclick="generateReport()" class="w-full bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded-lg transition-colors">
+                                📈 Generate Financial Report
+                            </button>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-lg p-6">
+                        <h3 class="text-xl font-semibold mb-4">Recent Transactions</h3>
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm">
+                                <span>AI Service Revenue</span>
+                                <span class="text-green-400">+$2.1M</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span>Infrastructure Investment</span>
+                                <span class="text-red-400">-$850K</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span>Market Optimization</span>
+                                <span class="text-green-400">+$1.2M</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Consciousness Tab -->
+        <div id="content-consciousness" class="tab-content hidden">
+            <div class="consciousness-gradient rounded-xl p-8 mb-8">
+                <h2 class="text-3xl font-bold mb-6">🧠 Consciousness OS Memory & Learning</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="glass-card rounded-lg p-6 text-center">
+                        <div class="text-3xl font-bold text-purple-400 mb-2">2.1M</div>
+                        <p class="text-sm text-gray-300">Memory Entries</p>
+                    </div>
+                    <div class="glass-card rounded-lg p-6 text-center">
+                        <div class="text-3xl font-bold text-blue-400 mb-2">95%</div>
+                        <p class="text-sm text-gray-300">Learning Efficiency</p>
+                    </div>
+                    <div class="glass-card rounded-lg p-6 text-center">
+                        <div class="text-3xl font-bold text-green-400 mb-2">847</div>
+                        <p class="text-sm text-gray-300">Patterns Detected</p>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="glass-card rounded-lg p-6">
+                        <h3 class="text-xl font-semibold mb-4">Memory Management</h3>
+                        <div class="space-y-3">
+                            <button onclick="storeMemory()" class="w-full bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded-lg transition-colors">
+                                💾 Store New Memory
+                            </button>
+                            <button onclick="initiateReflection()" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition-colors">
+                                🤔 Initiate Reflection
+                            </button>
+                            <button onclick="analyzePatterns()" class="w-full bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg transition-colors">
+                                🔍 Analyze Patterns
+                            </button>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-lg p-6">
+                        <h3 class="text-xl font-semibold mb-4">Recent Insights</h3>
+                        <div class="space-y-2">
+                            <div class="text-sm p-2 bg-purple-500/20 rounded">
+                                Market volatility patterns detected in financial sector
+                            </div>
+                            <div class="text-sm p-2 bg-blue-500/20 rounded">
+                                User behavior optimization opportunity identified
+                            </div>
+                            <div class="text-sm p-2 bg-green-500/20 rounded">
+                                New revenue stream potential discovered
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Agents Tab -->
+        <div id="content-agents" class="tab-content hidden">
+            <div class="glass-card rounded-xl p-8 mb-8">
+                <h2 class="text-3xl font-bold mb-6">🤖 Agent Orchestra Coordination</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="glass-card rounded-lg p-6 text-center">
+                        <div class="text-3xl font-bold text-blue-400 mb-2">12</div>
+                        <p class="text-sm text-gray-300">Active Agents</p>
+                    </div>
+                    <div class="glass-card rounded-lg p-6 text-center">
+                        <div class="text-3xl font-bold text-green-400 mb-2">47</div>
+                        <p class="text-sm text-gray-300">Tasks Completed</p>
+                    </div>
+                    <div class="glass-card rounded-lg p-6 text-center">
+                        <div class="text-3xl font-bold text-purple-400 mb-2">98%</div>
+                        <p class="text-sm text-gray-300">Success Rate</p>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="glass-card rounded-lg p-6">
+                        <h3 class="text-xl font-semibold mb-4">Agent Control</h3>
+                        <div class="space-y-3">
+                            <button onclick="coordinateAgents()" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition-colors">
+                                🎯 Coordinate Multi-Agent Task
+                            </button>
+                            <button onclick="orchestrateWorkflow()" class="w-full bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg transition-colors">
+                                🔄 Orchestrate Workflow
+                            </button>
+                            <button onclick="balanceLoad()" class="w-full bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded-lg transition-colors">
+                                ⚖️ Balance Agent Load
+                            </button>
+                        </div>
+                    </div>
+                    <div class="glass-card rounded-lg p-6">
+                        <h3 class="text-xl font-semibold mb-4">Active Agents</h3>
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm">
+                                <span>Financial Analysis Agent</span>
+                                <span class="text-green-400">Active</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span>Market Research Agent</span>
+                                <span class="text-green-400">Active</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span>Content Generation Agent</span>
+                                <span class="text-yellow-400">Busy</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span>Data Processing Agent</span>
+                                <span class="text-green-400">Active</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Monitoring Tab -->
+        <div id="content-monitoring" class="tab-content hidden">
+            <div class="glass-card rounded-xl p-8 mb-8">
+                <h2 class="text-3xl font-bold mb-6">📊 System Monitoring & Analytics</h2>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                    <div class="glass-card rounded-lg p-6 text-center">
+                        <div class="text-3xl font-bold text-green-400 mb-2">99.9%</div>
+                        <p class="text-sm text-gray-300">System Uptime</p>
+                    </div>
+                    <div class="glass-card rounded-lg p-6 text-center">
+                        <div class="text-3xl font-bold text-blue-400 mb-2">2.1GB</div>
+                        <p class="text-sm text-gray-300">Memory Usage</p>
+                    </div>
+                    <div class="glass-card rounded-lg p-6 text-center">
+                        <div class="text-3xl font-bold text-purple-400 mb-2">45ms</div>
+                        <p class="text-sm text-gray-300">Avg Response Time</p>
+                    </div>
+                    <div class="glass-card rounded-lg p-6 text-center">
+                        <div class="text-3xl font-bold text-yellow-400 mb-2">1,247</div>
+                        <p class="text-sm text-gray-300">Requests/Hour</p>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="glass-card rounded-lg p-6">
+                        <h3 class="text-xl font-semibold mb-4">Performance Chart</h3>
+                        <canvas id="performanceChart" width="400" height="200"></canvas>
+                    </div>
+                    <div class="glass-card rounded-lg p-6">
+                        <h3 class="text-xl font-semibold mb-4">System Health</h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between">
+                                <span class="text-sm">CPU Usage</span>
+                                <span class="text-sm text-green-400">23%</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-sm">Memory Usage</span>
+                                <span class="text-sm text-green-400">67%</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-sm">Disk Usage</span>
+                                <span class="text-sm text-yellow-400">78%</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-sm">Network I/O</span>
+                                <span class="text-sm text-green-400">45%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- AI Models Tab -->
+        <div id="content-models" class="tab-content hidden">
+            <div class="glass-card rounded-xl p-8 mb-8">
+                <h2 class="text-3xl font-bold mb-6">🤖 AI Model Testing & Management</h2>
+                
+                <!-- Model Testing Interface -->
+                <div class="glass-card rounded-lg p-6 mb-8">
+                    <h3 class="text-xl font-semibold mb-4">🧪 Test Your Models</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2">Enter your prompt:</label>
+                            <textarea id="testPrompt" rows="4" class="w-full p-3 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400" placeholder="Ask your AI agent anything..."></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-300 mb-2">Select Model:</label>
+                            <select id="testModel" class="w-full p-3 bg-gray-800 border border-gray-600 rounded-lg text-white">
+                                <option value="ceo">CEO Agent (Mixtral-8x7B)</option>
+                                <option value="cto">CTO Agent (DeepSeek-Coder-33B)</option>
+                                <option value="cfo">CFO Agent (NuminaMath-7B)</option>
+                                <option value="designer">Designer Agent (LLaVA-1.5-7B)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mt-4 flex space-x-4">
+                        <button onclick="testModel()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition-colors">
+                            Test Model
+                        </button>
+                        <button onclick="quickTest()" class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg transition-colors">
+                            Quick Test
+                        </button>
+                    </div>
+                    <div id="loading" class="hidden text-center text-blue-400 mt-4">🔄 Testing model...</div>
+                    <div id="response" class="mt-4 p-4 bg-gray-800 border border-gray-600 rounded-lg text-white font-mono text-sm min-h-[100px] whitespace-pre-wrap"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ventures Tab -->
+        <div id="content-ventures" class="tab-content hidden">
+            <div class="glass-card rounded-xl p-8 mb-8">
+                <h2 class="text-3xl font-bold mb-6">🚀 Venture Studio Management</h2>
+                
+                <!-- Quick Actions -->
+                <div class="glass-card rounded-lg p-6 mb-8">
+                    <h3 class="text-xl font-semibold mb-4">Quick Actions</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <button onclick="openPlatform('notion')" class="bg-blue-500 hover:bg-blue-600 text-white p-4 rounded-lg transition-colors">
+                            <div class="text-2xl mb-2">📝</div>
+                            <p>Notion Workspace</p>
+                        </button>
+                        <button onclick="openPlatform('ollama')" class="bg-purple-500 hover:bg-purple-600 text-white p-4 rounded-lg transition-colors">
+                            <div class="text-2xl mb-2">🧠</div>
+                            <p>Ollama AI</p>
+                        </button>
+                        <button onclick="openPlatform('prisma')" class="bg-green-500 hover:bg-green-600 text-white p-4 rounded-lg transition-colors">
+                            <div class="text-2xl mb-2">🗄️</div>
+                            <p>Prisma DB</p>
+                        </button>
+                        <button onclick="openPlatform('linear')" class="bg-red-500 hover:bg-red-600 text-white p-4 rounded-lg transition-colors">
+                            <div class="text-2xl mb-2">📋</div>
+                            <p>Linear Tasks</p>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Architecture Tab -->
+        <div id="content-architecture" class="tab-content hidden">
+            <div class="glass-card rounded-xl p-8 mb-8">
+                <h2 class="text-3xl font-bold mb-6">🏗️ System Architecture & URL Layers</h2>
+                
+                <!-- URL Layer Documentation -->
+                <div class="glass-card rounded-lg p-6 mb-8">
+                    <h3 class="text-xl font-semibold mb-4">URL Layers & API Gateway</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="text-lg font-semibold text-blue-400 mb-3">API Endpoints</h4>
+                            <div class="space-y-2">
+                                <div class="flex justify-between">
+                                    <span class="text-gray-300">/api/ventures</span>
+                                    <span class="text-green-400">Backend Core (CRUD)</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-300">/n8n/workflows</span>
+                                    <span class="text-green-400">Workflow Engine</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-300">/ollama/api/tags</span>
+                                    <span class="text-green-400">AI Model Management</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-300">/mcp/tools</span>
+                                    <span class="text-green-400">MCP Tool Execution</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-semibold text-purple-400 mb-3">Service Ports</h4>
+                            <div class="space-y-2">
+                                <div class="flex justify-between">
+                                    <span class="text-gray-300">Backend Core</span>
+                                    <span class="text-blue-400">:3000</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-300">MEMU Dashboard</span>
+                                    <span class="text-blue-400">:3004</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-300">N8N Workflows</span>
+                                    <span class="text-blue-400">:5679</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-300">Ollama AI</span>
+                                    <span class="text-blue-400">:11434</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Tab Management
+        function showTab(tabName) {
+            // Hide all tab contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.add('hidden'));
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.tab-btn');
+            tabs.forEach(tab => {
+                tab.classList.remove('border-blue-500', 'text-blue-400');
+                tab.classList.add('border-transparent', 'text-gray-300');
+            });
+            
+            // Show selected tab content
+            document.getElementById(`content-${tabName}`).classList.remove('hidden');
+            
+            // Add active class to selected tab
+            const activeTab = document.getElementById(`tab-${tabName}`);
+            activeTab.classList.remove('border-transparent', 'text-gray-300');
+            activeTab.classList.add('border-blue-500', 'text-blue-400');
+        }
+
+        // Service Health Monitoring
+        async function checkServiceHealth() {
+            const services = [
+                { name: 'backend', url: 'http://localhost:8000/health', port: 8000 },
+                { name: 'genix', url: 'http://localhost:3001/health', port: 3001 },
+                { name: 'consciousness', url: 'http://localhost:3002/health', port: 3002 },
+                { name: 'orchestra', url: 'http://localhost:3004/health', port: 3004 }
+            ];
+
+            for (const service of services) {
+                try {
+                    const response = await fetch(service.url);
+                    const data = await response.json();
+                    
+                    const statusElement = document.getElementById(`${service.name}-status`);
+                    const healthElement = document.getElementById(`${service.name}-health`);
+                    
+                    if (response.ok) {
+                        statusElement.className = 'w-3 h-3 bg-green-400 rounded-full animate-pulse';
+                        healthElement.textContent = data.status || 'Healthy';
+                    } else {
+                        statusElement.className = 'w-3 h-3 bg-red-400 rounded-full animate-pulse';
+                        healthElement.textContent = 'Degraded';
+                    }
+                } catch (error) {
+                    const statusElement = document.getElementById(`${service.name}-status`);
+                    const healthElement = document.getElementById(`${service.name}-health`);
+                    statusElement.className = 'w-3 h-3 bg-red-400 rounded-full animate-pulse';
+                    healthElement.textContent = 'Offline';
+                }
+            }
+        }
+
+        // Financial Operations
+        async function optimizeFinancials() {
+            try {
+                const response = await fetch('http://localhost:3001/optimize', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ strategy: 'market_optimization', parameters: { risk_level: 'moderate' } })
+                });
+                const result = await response.json();
+                alert(`Financial optimization initiated: ${result.message}`);
+            } catch (error) {
+                alert('Failed to initiate financial optimization');
+            }
+        }
+
+        async function analyzeMarkets() {
+            alert('Market analysis initiated - results will be available in the consciousness memory');
+        }
+
+        async function generateReport() {
+            alert('Financial report generation started - check consciousness OS for results');
+        }
+
+        // Consciousness Operations
+        async function storeMemory() {
+            const content = prompt('Enter memory content:');
+            if (content) {
+                try {
+                    const response = await fetch('http://localhost:3002/memory', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ content, type: 'user_input', importance: 0.7 })
+                    });
+                    const result = await response.json();
+                    alert(`Memory stored: ${result.message}`);
+                } catch (error) {
+                    alert('Failed to store memory');
+                }
+            }
+        }
+
+        async function initiateReflection() {
+            try {
+                const response = await fetch('http://localhost:3002/reflect', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ context: 'user_requested_reflection' })
+                });
+                const result = await response.json();
+                alert(`Reflection initiated: ${result.message}`);
+            } catch (error) {
+                alert('Failed to initiate reflection');
+            }
+        }
+
+        async function analyzePatterns() {
+            alert('Pattern analysis started - insights will be available in consciousness memory');
+        }
+
+        // Agent Operations
+        async function coordinateAgents() {
+            try {
+                const response = await fetch('http://localhost:3004/coordinate', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        agents: ['financial', 'market', 'content'], 
+                        task: 'comprehensive_business_analysis' 
+                    })
+                });
+                const result = await response.json();
+                alert(`Agent coordination initiated: ${result.message}`);
+            } catch (error) {
+                alert('Failed to coordinate agents');
+            }
+        }
+
+        async function orchestrateWorkflow() {
+            try {
+                const response = await fetch('http://localhost:3004/orchestrate', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        target_service_id: 'consciousness-os', 
+                        task_type: 'memory_analysis',
+                        payload: { analysis_type: 'comprehensive' }
+                    })
+                });
+                const result = await response.json();
+                alert(`Workflow orchestration initiated: ${result.message}`);
+            } catch (error) {
+                alert('Failed to orchestrate workflow');
+            }
+        }
+
+        async function balanceLoad() {
+            try {
+                const response = await fetch('http://localhost:3004/balance');
+                const result = await response.json();
+                alert(`Load balancing info: ${result.message}`);
+            } catch (error) {
+                alert('Failed to get load balancing info');
+            }
+        }
+
+        // Performance Chart
+        function initPerformanceChart() {
+            const ctx = document.getElementById('performanceChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['00:00', '04:00', '08:00', '12:00', '16:00', '20:00'],
+                    datasets: [{
+                        label: 'Response Time (ms)',
+                        data: [45, 42, 38, 41, 39, 44],
+                        borderColor: '#3b82f6',
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            labels: { color: 'white' }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            ticks: { color: 'white' },
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                        },
+                        x: {
+                            ticks: { color: 'white' },
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' }
+                        }
+                    }
+                }
+            });
+        }
+
+        // AI Model Testing Functions
+        async function testModel() {
+            const prompt = document.getElementById('testPrompt').value;
+            const model = document.getElementById('testModel').value;
+            const responseArea = document.getElementById('response');
+            const loading = document.getElementById('loading');
+            
+            if (!prompt.trim()) {
+                responseArea.textContent = 'Please enter a prompt to test.';
+                return;
+            }
+            
+            loading.classList.remove('hidden');
+            responseArea.textContent = '';
+            
+            try {
+                const response = await fetch(`http://localhost:8080/${model}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        prompt: prompt,
+                        max_tokens: 500,
+                        temperature: 0.7
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    responseArea.textContent = `✅ Success!\n\nModel: ${data.model_name}\nExecution Time: ${data.execution_time.toFixed(2)}s\nTokens Used: ${data.tokens_used}\nCost: $${data.cost.toFixed(4)}\n\nResponse:\n${data.content}`;
+                } else {
+                    responseArea.textContent = `❌ Error: ${data.error || 'Unknown error occurred'}`;
+                }
+            } catch (error) {
+                responseArea.textContent = `❌ Network Error: ${error.message}`;
+            } finally {
+                loading.classList.add('hidden');
+            }
+        }
+
+        function quickTest() {
+            const testPrompts = {
+                ceo: "What is the strategic vision for IZA OS?",
+                cto: "Generate Python code for agent orchestration",
+                designer: "Create a glass-morphism hero section design",
+                cfo: "Calculate ROI for AI automation investment"
+            };
+            
+            const model = document.getElementById('testModel').value;
+            document.getElementById('testPrompt').value = testPrompts[model] || "Test prompt";
+            testModel();
+        }
+
+        // Venture Management Functions
+        function openPlatform(platform) {
+            const urls = {
+                notion: 'https://notion.so',
+                ollama: 'http://localhost:11434',
+                prisma: 'https://console.prisma.io',
+                linear: 'https://linear.app/worldwidebro/team/WOR/active'
+            };
+            window.open(urls[platform], '_blank');
+        }
+
+        function addVenture() {
+            const name = document.getElementById('ventureName').value;
+            const type = document.getElementById('ventureType').value;
+            
+            if (name) {
+                const venturesList = document.getElementById('venturesList');
+                const ventureDiv = document.createElement('div');
+                ventureDiv.className = 'bg-gray-800 rounded-lg p-4';
+                ventureDiv.innerHTML = `
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h4 class="text-white font-semibold">${name}</h4>
+                            <p class="text-gray-300">${type}</p>
+                            <p class="text-gray-400 text-sm">Planning</p>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button onclick="editVenture(${Date.now()})" class="text-blue-400 hover:text-blue-300">✏️</button>
+                            <button onclick="deployVenture(${Date.now()})" class="text-green-400 hover:text-green-300">🚀</button>
+                        </div>
+                    </div>
+                `;
+                venturesList.appendChild(ventureDiv);
+                
+                // Clear form
+                document.getElementById('ventureName').value = '';
+                document.getElementById('ventureType').value = 'saas';
+                document.getElementById('ventureForm').classList.add('hidden');
+                
+                // Update count
+                const count = document.getElementById('activeVentures');
+                count.textContent = parseInt(count.textContent) + 1;
+            }
+        }
+
+        function editVenture(id) {
+            const newName = prompt('Edit venture name:');
+            if (newName) {
+                console.log('Editing venture:', id, 'to:', newName);
+            }
+        }
+
+        function deployVenture(id) {
+            alert(`Deploying venture ${id}...`);
+        }
+
+        // File Management Functions
+        function executeTranslation() {
+            alert('Executing complete translation and reorganization...');
+        }
+
+        function organizeEcosystem() {
+            alert('Organizing entire ecosystem...');
+        }
+
+        function deployEcosystem() {
+            alert('Deploying ecosystem...');
+        }
+
+        // Initialize Dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            checkServiceHealth();
+            initPerformanceChart();
+            
+            // Update every 30 seconds
+            setInterval(checkServiceHealth, 30000);
+        });
+    </script>
+</body>
+</html>

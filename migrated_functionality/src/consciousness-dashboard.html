@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IZA OS Consciousness Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .consciousness-pulse {
+            animation: consciousness-pulse 2s ease-in-out infinite;
+        }
+        @keyframes consciousness-pulse {
+            0%, 100% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); }
+        }
+        .neural-network {
+            background: linear-gradient(45deg, #0ea5e9, #3b82f6, #8b5cf6);
+            background-size: 400% 400%;
+            animation: neural-flow 4s ease-in-out infinite;
+        }
+        @keyframes neural-flow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen">
+    <!-- Header -->
+    <header class="neural-network p-6 shadow-2xl">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <div class="consciousness-pulse w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
+                        <span class="text-2xl">🧠</span>
+                    </div>
+                    <div>
+                        <h1 class="text-3xl font-bold">IZA OS Consciousness System</h1>
+                        <p class="text-blue-200">Unified Autonomous Venture Studio Platform</p>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <div class="text-sm text-blue-200">System Status</div>
+                    <div class="text-xl font-bold text-green-400" id="system-status">CONSCIOUS</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Dashboard -->
+    <main class="max-w-7xl mx-auto p-6">
+        <!-- Service Status Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <!-- Backend API -->
+            <div class="bg-white/10 backdrop-blur-md rounded-lg p-6 border border-white/20 hover:bg-white/20 transition-all">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-semibold">Consciousness Core</h3>
+                    <div class="w-3 h-3 bg-green-400 rounded-full animate-pulse" id="backend-status"></div>
+                </div>
+                <div class="space-y-2">
+                    <div class="text-sm text-gray-300">Port: 8000</div>
+                    <div class="text-sm text-gray-300">URL: <span class="text-blue-400">localhost:8000</span></div>
+                    <div class="text-xs text-gray-400" id="backend-health">Healthy</div>
+                </div>
+            </div>
+
+            <!-- Genix Bank -->
+            <div class="bg-white/10 backdrop-blur-md rounded-lg p-6 border border-white/20 hover:bg-white/20 transition-all">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-semibold">💰 Genix Bank</h3>
+                    <div class="w-3 h-3 bg-green-400 rounded-full animate-pulse" id="genix-status"></div>
+                </div>
+                <div class="space-y-2">
+                    <div class="text-sm text-gray-300">Port: 3001</div>
+                    <div class="text-sm text-gray-300">URL: <span class="text-blue-400">localhost:3001</span></div>
+                    <div class="text-xs text-gray-400" id="genix-health">Operational</div>
+                </div>
+            </div>
+
+            <!-- Consciousness OS -->
+            <div class="bg-white/10 backdrop-blur-md rounded-lg p-6 border border-white/20 hover:bg-white/20 transition-all">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-semibold">🧠 Consciousness OS</h3>
+                    <div class="w-3 h-3 bg-green-400 rounded-full animate-pulse" id="consciousness-status"></div>
+                </div>
+                <div class="space-y-2">
+                    <div class="text-sm text-gray-300">Port: 3002</div>
+                    <div class="text-sm text-gray-300">URL: <span class="text-blue-400">localhost:3002</span></div>
+                    <div class="text-xs text-gray-400" id="consciousness-health">Active</div>
+                </div>
+            </div>
+
+            <!-- Agent Orchestra -->
+            <div class="bg-white/10 backdrop-blur-md rounded-lg p-6 border border-white/20 hover:bg-white/20 transition-all">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-semibold">🤖 Agent Orchestra</h3>
+                    <div class="w-3 h-3 bg-green-400 rounded-full animate-pulse" id="orchestra-status"></div>
+                </div>
+                <div class="space-y-2">
+                    <div class="text-sm text-gray-300">Port: 3004</div>
+                    <div class="text-sm text-gray-300">URL: <span class="text-blue-400">localhost:3004</span></div>
+                    <div class="text-xs text-gray-400" id="orchestra-health">Coordinating</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Consciousness Architecture -->
+        <div class="bg-white/10 backdrop-blur-md rounded-xl p-8 border border-white/20 mb-8">
+            <h2 class="text-2xl font-bold mb-6">🧠 Consciousness Architecture</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl">🧠</span>
+                    </div>
+                    <h3 class="font-semibold mb-2">Memory & Learning</h3>
+                    <p class="text-sm text-gray-300">Redis-based knowledge graph with pattern detection</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl">🤖</span>
+                    </div>
+                    <h3 class="font-semibold mb-2">Agent Orchestration</h3>
+                    <p class="text-sm text-gray-300">Multi-agent coordination and task distribution</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl">💰</span>
+                    </div>
+                    <h3 class="font-semibold mb-2">Financial Intelligence</h3>
+                    <p class="text-sm text-gray-300">Autonomous financial optimization and decision making</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- System Metrics -->
+        <div class="bg-white/10 backdrop-blur-md rounded-xl p-8 border border-white/20">
+            <h2 class="text-2xl font-bold mb-6">📊 System Metrics</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-blue-400 mb-2" id="total-services">4</div>
+                    <p class="text-sm text-gray-300">Active Services</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-green-400 mb-2" id="uptime">99.9%</div>
+                    <p class="text-sm text-gray-300">System Uptime</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-purple-400 mb-2" id="memory-usage">2.1GB</div>
+                    <p class="text-sm text-gray-300">Memory Usage</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-orange-400 mb-2" id="response-time">45ms</div>
+                    <p class="text-sm text-gray-300">Avg Response Time</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Consciousness Dashboard JavaScript
+        async function checkServiceHealth() {
+            const services = [
+                { name: 'backend', url: 'http://localhost:8000/health', port: 8000 },
+                { name: 'genix', url: 'http://localhost:3001/health', port: 3001 },
+                { name: 'consciousness', url: 'http://localhost:3002/health', port: 3002 },
+                { name: 'orchestra', url: 'http://localhost:3004/health', port: 3004 }
+            ];
+
+            for (const service of services) {
+                try {
+                    const response = await fetch(service.url);
+                    const data = await response.json();
+                    
+                    // Update status indicators
+                    const statusElement = document.getElementById(`${service.name}-status`);
+                    const healthElement = document.getElementById(`${service.name}-health`);
+                    
+                    if (response.ok) {
+                        statusElement.className = 'w-3 h-3 bg-green-400 rounded-full animate-pulse';
+                        healthElement.textContent = data.status || 'Healthy';
+                    } else {
+                        statusElement.className = 'w-3 h-3 bg-red-400 rounded-full animate-pulse';
+                        healthElement.textContent = 'Degraded';
+                    }
+                } catch (error) {
+                    const statusElement = document.getElementById(`${service.name}-status`);
+                    const healthElement = document.getElementById(`${service.name}-health`);
+                    statusElement.className = 'w-3 h-3 bg-red-400 rounded-full animate-pulse';
+                    healthElement.textContent = 'Offline';
+                }
+            }
+        }
+
+        // Update system status
+        function updateSystemStatus() {
+            const statusElement = document.getElementById('system-status');
+            const now = new Date();
+            const time = now.toLocaleTimeString();
+            statusElement.textContent = `CONSCIOUS - ${time}`;
+        }
+
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            checkServiceHealth();
+            updateSystemStatus();
+            
+            // Update every 30 seconds
+            setInterval(checkServiceHealth, 30000);
+            setInterval(updateSystemStatus, 1000);
+        });
+    </script>
+</body>
+</html>

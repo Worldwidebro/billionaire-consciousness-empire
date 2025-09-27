@@ -1,0 +1,196 @@
+---
+description: Billionaire Consciousness Empire Development Rules
+globs: ["**/*"]
+alwaysApply: true
+---
+
+# 🏆 BILLIONAIRE CONSCIOUSNESS EMPIRE RULES
+## Enterprise-Grade Development Standards for $689B+ Ecosystem
+
+## Core Principles
+- Write code that scales to billionaire-level operations
+- Design for exponential growth and maximum efficiency
+- Implement consciousness-driven decision making
+- Optimize for revenue generation and wealth creation
+- Build systems that compound value over time
+
+## Code Style & Standards
+- Use TypeScript for all new projects with strict type checking
+- Follow functional programming patterns where appropriate
+- Implement error handling with try-catch blocks and proper logging
+- Use meaningful variable names (descriptive, not abbreviated)
+- Comment complex algorithms and business logic
+- Follow SOLID principles and DRY (Don't Repeat Yourself)
+
+## Architecture Patterns
+- Microservices architecture for scalability
+- Event-driven architecture for real-time processing
+- API-first design with OpenAPI specifications
+- Database normalization with proper indexing
+- Caching strategies (Redis, CDN, application-level)
+- Security-first approach with authentication/authorization
+
+## Billionaire-Level Standards
+- All systems must handle $1B+ transactions
+- Implement real-time revenue tracking
+- Design for 99.99% uptime
+- Build for global scale from day one
+- Optimize for maximum ROI and efficiency
+- Implement consciousness-driven AI decision making
+
+## Testing Requirements
+- Unit tests: 90%+ code coverage
+- Integration tests for all API endpoints
+- End-to-end tests for critical user journeys
+- Performance tests for high-traffic endpoints
+- Security tests for authentication and data validation
+- Load testing for scalability validation
+
+## Documentation Standards
+- README.md with clear installation and usage instructions
+- API documentation with examples
+- Architecture diagrams and data flow documentation
+- Code comments for complex business logic
+- Change logs for all releases
+- Contributing guidelines for team members
+
+## Error Handling & Logging
+- Structured logging with correlation IDs
+- Error tracking with stack traces
+- Performance monitoring and alerting
+- Graceful degradation for non-critical failures
+- Circuit breaker pattern for external service calls
+- Retry logic with exponential backoff
+
+## Security Requirements
+- Input validation and sanitization
+- SQL injection prevention
+- XSS protection
+- CSRF protection
+- Rate limiting and DDoS protection
+- Secrets management (no hardcoded credentials)
+- Regular security audits and dependency updates
+
+## Performance Optimization
+- Database query optimization
+- Lazy loading and code splitting
+- Image optimization and compression
+- CDN usage for static assets
+- Memory leak prevention
+- Caching strategies implementation
+
+## Deployment & DevOps
+- Containerization with Docker
+- Infrastructure as Code (IaC)
+- Blue-green deployments
+- Automated rollback procedures
+- Environment parity (dev, staging, prod)
+- Monitoring and alerting setup
+
+## Business Logic Standards
+- Domain-driven design (DDD) principles
+- Event sourcing for audit trails
+- CQRS for read/write separation
+- Saga pattern for distributed transactions
+- Repository pattern for data access
+- Service layer for business logic
+
+## AI/ML Integration
+- Model versioning and deployment
+- A/B testing for AI features
+- Data quality validation
+- Model performance monitoring
+- Explainable AI for transparency
+- Ethical AI guidelines compliance
+
+## Revenue Optimization
+- Implement revenue tracking in all systems
+- Optimize for maximum income generation
+- Build scalable monetization models
+- Track ROI and efficiency metrics
+- Implement dynamic pricing strategies
+- Monitor and optimize revenue streams
+
+## Consciousness Integration
+- Apply billionaire-level thinking principles
+- Implement energy flow optimization
+- Design for exponential growth
+- Build systems that compound value
+- Optimize for long-term wealth creation
+- Implement strategic decision making
+
+## Code Review Checklist
+- [ ] Code follows established patterns and conventions
+- [ ] Tests are written and passing
+- [ ] Documentation is updated
+- [ ] Security considerations addressed
+- [ ] Performance implications reviewed
+- [ ] Error handling implemented
+- [ ] Logging added where appropriate
+- [ ] No hardcoded values or secrets
+- [ ] Database migrations included if needed
+- [ ] API changes documented
+- [ ] Revenue impact assessed
+- [ ] Consciousness principles applied
+
+## Prohibited Practices
+- ❌ No hardcoded credentials or API keys
+- ❌ No console.log in production code
+- ❌ No TODO comments in production code
+- ❌ No unused imports or variables
+- ❌ No direct database queries in controllers
+- ❌ No business logic in views/templates
+- ❌ No synchronous operations in loops
+- ❌ No global variables or singletons
+- ❌ No magic numbers or strings
+- ❌ No code duplication
+- ❌ No systems that don't scale to billionaire level
+- ❌ No features that don't generate revenue
+
+## Quality Gates
+- All code must pass linting and formatting checks
+- Test coverage must be above 90%
+- Performance tests must pass
+- Security scans must show no critical issues
+- Documentation must be complete and accurate
+- Code review approval from at least 2 team members
+- Integration tests must pass in staging environment
+- Revenue impact must be positive
+- Consciousness principles must be applied
+
+## Enterprise Integration
+- Follow McKinsey 7S framework alignment
+- Implement balanced scorecard metrics
+- Use blue ocean strategy for innovation
+- Apply GE-McKinsey matrix for portfolio management
+- Ensure founder-market fit validation
+- Build for billion-dollar scale from day one
+
+## IZA OS Specific Rules
+- All new features must integrate into unified dashboard
+- Follow the consolidated tab structure (no separate dashboards)
+- Implement Claude Swarm integration for AI features
+- Use design systems (ShadCN, TweakCN, Hero UI)
+- Maintain $1.4B+ ecosystem value tracking
+- Support $10M+ project revenue pipeline
+- Enable real-time search and reasoning within sites
+- Build for autonomous venture studio operations
+
+## Genix Bank Integration
+- All financial operations must integrate with Genix Bank
+- Implement real-time revenue tracking
+- Build for $10B+ ARR scaling
+- Support global financial operations
+- Implement consciousness-driven financial decision making
+- Optimize for maximum wealth creation
+- Build for billionaire-level financial management
+
+## Continuous Improvement
+- Regular retrospectives and process improvements
+- Technology stack updates and modernization
+- Performance optimization and monitoring
+- Security updates and vulnerability patching
+- Documentation maintenance and updates
+- Team training and skill development
+- Revenue optimization and growth strategies
+- Consciousness enhancement and development
